@@ -1,17 +1,20 @@
 module.exports = {
-  extends: ['airbnb', 'prettier'],
-  parser: '@babel/eslint-parser',
-  parserOptions: {
-    requireConfigFile: false,
-    babelOptions: {
-      presets: ['@babel/preset-react'],
-    },
-  },
   env: {
     browser: true,
     node: true,
     jquery: true,
     jest: true,
+  },
+  parser: '@typescript-eslint/parser',
+  plugins: ['@typescript-eslint', 'prettier'],
+  extends: [
+    'eslint:recommended',
+    'plugin:@typescript-eslint/eslint-recommended',
+    'plugin:@typescript-eslint/recommended-requiring-type-checking',
+    'prettier'
+  ],
+  parserOptions: {
+    project: ["./tsconfig.json"]
   },
   rules: {
     'no-debugger': 0,
@@ -60,27 +63,8 @@ module.exports = {
     'import/extensions': 0,
     'no-underscore-dangle': 0,
     'consistent-return': 0,
-    'react/display-name': 1,
-    'react/no-array-index-key': 0,
-    'react/react-in-jsx-scope': 0,
-    'react/prefer-stateless-function': 0,
-    'react/forbid-prop-types': 0,
-    'react/no-unescaped-entities': 0,
-    'react/function-component-definition': 0,
     'jsx-a11y/accessible-emoji': 0,
-    'jsx-a11y/label-has-associated-control': [
-      'error',
-      {
-        assert: 'either',
-      },
-    ],
     'react/require-default-props': 0,
-    'react/jsx-filename-extension': [
-      1,
-      {
-        extensions: ['.js', '.jsx', '.ts', '.tsx', '.mdx'],
-      },
-    ],
     radix: 0,
     'no-shadow': [
       2,
@@ -103,23 +87,10 @@ module.exports = {
         trailingComma: 'es5',
         singleQuote: true,
         printWidth: 80,
-        // below line only for windows users facing CLRF and eslint/prettier error
-        // non windows users feel free to delete it
         endOfLine: 'auto',
         arrowParens: 'avoid',
       },
     ],
-    'jsx-a11y/href-no-hash': 'off',
-    'jsx-a11y/anchor-is-valid': [
-      'warn',
-      {
-        aspects: ['invalidHref'],
-      },
-    ],
-    'react-hooks/rules-of-hooks': 'error',
-    'react-hooks/exhaustive-deps': 'warn',
-    '@typescript-eslint/comma-dangle': ['off'],
-    'react/jsx-props-no-spreading': 'off',
-  },
-  plugins: ['html', 'prettier', 'react-hooks'],
-};
+    '@typescript-eslint/comma-dangle': ['off']
+  }
+}
