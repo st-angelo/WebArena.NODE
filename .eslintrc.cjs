@@ -63,8 +63,6 @@ module.exports = {
     'import/extensions': 0,
     'no-underscore-dangle': 0,
     'consistent-return': 0,
-    'jsx-a11y/accessible-emoji': 0,
-    'react/require-default-props': 0,
     radix: 0,
     'no-shadow': [
       2,
