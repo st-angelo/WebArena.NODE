@@ -2,10 +2,12 @@
   "name": "web-arena-node",
   "version": "1.0.0",
   "description": "This is the api for WebArena",
-  "main": "index.js",
+  "main": "./src/server.mts",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "server:build:dev": "tsc -w",
+    "server:watch": "nodemon dist/server.mjs",
+    "start": "npm-run-all --parallel server:build:dev server:watch",
     "lint": "eslint . --ext .mts",
     "lint:fix": "eslint . --ext .mts --fix"
   },
@@ -23,11 +25,29 @@
   },
   "homepage": "https://github.com/st-angelo/WebArena.NODE#readme",
   "devDependencies": {
+    "@types/bcryptjs": "^2.4.2",
+    "@types/eslint": "^8.4.1",
+    "@types/eslint-plugin-prettier": "^3.1.0",
+    "@types/express": "^4.17.13",
+    "@types/jsonwebtoken": "^8.5.8",
+    "@types/morgan": "^1.9.3",
+    "@types/node": "^17.0.17",
+    "@types/prettier": "^2.4.4",
     "@typescript-eslint/eslint-plugin": "^5.11.0",
     "@typescript-eslint/parser": "^5.11.0",
     "eslint": "^8.9.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^4.0.0",
-    "prettier": "^2.5.1"
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.5.1",
+    "typescript": "^4.5.5"
+  },
+  "dependencies": {
+    "@types/dotenv": "^8.2.0",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.2",
+    "jsonwebtoken": "^8.5.1",
+    "morgan": "^1.10.0"
   }
 }
