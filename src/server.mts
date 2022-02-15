@@ -1,6 +1,15 @@
+import mongoose from 'mongoose';
 import './utils/config.mjs';
 import './startup.mjs';
 import app from './app.mjs';
+import { __connectionString } from './utils/common.mjs';
+
+mongoose
+  .connect(__connectionString)
+  .then(_ => console.log('Database connection succesful!'))
+  .catch(_ => {
+    throw new Error(`Database connection failed...${__connectionString}`);
+  });
 
 const port = process.env.PORT || 3000;
 const server = app.listen(port, () => {
