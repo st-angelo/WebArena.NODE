@@ -1,8 +1,7 @@
-/* eslint-disable no-unused-vars */
-
+/* eslint-disable @typescript-eslint/no-unused-vars */
 // #region Util namespaces
 
-declare namespace expressUtils {
+declare namespace types {
   import * as express from 'express';
   type RequestHandler = express.RequestHandler;
   export { RequestHandler };
@@ -25,7 +24,7 @@ declare module NodeJS {
 }
 
 declare module 'xss-clean' {
-  declare function xss(): expressUtils.RequestHandler;
+  declare function xss(): types.RequestHandler;
   export default xss;
 }
 

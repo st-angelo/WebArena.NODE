@@ -7,8 +7,8 @@ import { __connectionString } from './utils/common.mjs';
 mongoose
   .connect(__connectionString)
   .then(_ => console.log('Database connection succesful!'))
-  .catch(_ => {
-    throw new Error(`Database connection failed...${__connectionString}`);
+  .catch((err: Error) => {
+    throw new Error(`Database connection failed! Message: ${err.message}`);
   });
 
 const port = process.env.PORT || 3000;

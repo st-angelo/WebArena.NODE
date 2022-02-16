@@ -27,13 +27,6 @@ module.exports = {
       'LabeledStatement',
       'WithStatement',
     ],
-    'no-unused-vars': [
-      1,
-      {
-        ignoreRestSiblings: true,
-        argsIgnorePattern: '_|req|res|next',
-      },
-    ],
     'prefer-const': [
       'error',
       {
@@ -64,13 +57,6 @@ module.exports = {
     'no-underscore-dangle': 0,
     'consistent-return': 0,
     radix: 0,
-    'no-shadow': [
-      2,
-      {
-        hoist: 'all',
-        allow: ['resolve', 'reject', 'done', 'next', 'err', 'error'],
-      },
-    ],
     quotes: [
       2,
       'single',
@@ -89,6 +75,15 @@ module.exports = {
         arrowParens: 'avoid',
       },
     ],
-    '@typescript-eslint/comma-dangle': ['off']
+    "no-shadow": "off",
+    "@typescript-eslint/no-shadow": ["error"],
+    "no-unused-vars": "off",
+    "@typescript-eslint/no-unused-vars": [
+      "error", 
+      {
+        ignoreRestSiblings: true,
+        argsIgnorePattern: '^_|req|res|next',
+      }
+    ]
   }
 }
