@@ -14,7 +14,7 @@ module.exports = {
     'prettier'
   ],
   parserOptions: {
-    project: ["./tsconfig.json"]
+    project: ['./tsconfig.json']
   },
   rules: {
     'no-debugger': 0,
@@ -46,7 +46,7 @@ module.exports = {
         props: false,
       },
     ],
-    'no-console': 1,
+    'no-console': 'warn',
     'import/prefer-default-export': 0,
     import: 0,
     'func-names': 0,
@@ -58,7 +58,7 @@ module.exports = {
     'consistent-return': 0,
     radix: 0,
     quotes: [
-      2,
+      'error',
       'single',
       {
         avoidEscape: true,
@@ -75,15 +75,16 @@ module.exports = {
         arrowParens: 'avoid',
       },
     ],
-    "no-shadow": "off",
-    "@typescript-eslint/no-shadow": ["error"],
-    "no-unused-vars": "off",
-    "@typescript-eslint/no-unused-vars": [
-      "error", 
+    'no-shadow': ['off'],
+    '@typescript-eslint/no-shadow': ['error'],
+    'no-unused-vars': ['off'],
+    '@typescript-eslint/no-unused-vars': [
+      'error', 
       {
         ignoreRestSiblings: true,
         argsIgnorePattern: '^_|req|res|next',
       }
-    ]
+    ],
+    '@typescript-eslint/restrict-template-expressions': ['off']
   }
 }
