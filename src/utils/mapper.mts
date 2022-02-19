@@ -1,7 +1,7 @@
-import { createMapper, mapFrom } from '@automapper/core';
 import { classes } from '@automapper/classes';
-import User from '../data/entities/user.mjs';
+import { createMapper, mapFrom } from '@automapper/core';
 import UserDto from '../data/dto/userDto.mjs';
+import User from '../data/entities/user.mjs';
 
 const mapper = createMapper({
   name: 'main',

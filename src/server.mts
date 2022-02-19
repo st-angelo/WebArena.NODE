@@ -1,4 +1,6 @@
 import mongoose from 'mongoose';
+/* These two scripts need to be imported before app, to load the environment configs
+   and establish some error handling */
 import './utils/config.mjs';
 import './startup.mjs';
 import app from './app.mjs';

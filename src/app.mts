@@ -1,10 +1,10 @@
 import express from 'express';
+import mongoSanitize from 'express-mongo-sanitize';
 import rateLimit from 'express-rate-limit';
 import helmet from 'helmet';
-import morgan from 'morgan';
-import mongoSanitize from 'express-mongo-sanitize';
-import xss from 'xss-clean';
 import hpp from 'hpp';
+import morgan from 'morgan';
+import xss from 'xss-clean';
 import { __dirname } from './utils/common.mjs';
 
 const app = express();
