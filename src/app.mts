@@ -5,6 +5,7 @@ import helmet from 'helmet';
 import hpp from 'hpp';
 import morgan from 'morgan';
 import xss from 'xss-clean';
+import userRouter from './routers/userRouter.mjs';
 import { __dirname } from './utils/common.mjs';
 
 const app = express();
@@ -39,5 +40,7 @@ app.use(hpp());
 
 // Serving static files
 app.use(express.static(`${__dirname}/public`));
+
+app.use('/api/v1/users', userRouter);
 
 export default app;

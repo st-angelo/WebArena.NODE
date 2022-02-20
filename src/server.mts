@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import mongoose from 'mongoose';
 /* These two scripts need to be imported before app, to load the environment configs
    and establish some error handling */

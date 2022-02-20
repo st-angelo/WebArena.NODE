@@ -5,9 +5,9 @@
   "main": "./src/server.mts",
   "type": "module",
   "scripts": {
-    "server:build:dev": "tsc -w",
-    "server:watch": "nodemon dist/server.mjs",
-    "start": "npm-run-all --parallel server:build:dev server:watch",
+    "server:build": "tsc",
+    "server:run": "node dist/server.mjs",
+    "start": "npm-run-all --sequential server:build server:run",
     "lint": "eslint . --ext .mts",
     "lint:fix": "eslint . --ext .mts --fix"
   },
