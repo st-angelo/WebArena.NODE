@@ -1,5 +1,5 @@
-import { AutoMap } from '@automapper/classes';
 import { ObjectId } from 'mongoose';
+import { AutoMap } from '../../utils/imports/automapper.mjs';
 import { UserRole } from '../constants.mjs';
 
 class User {

@@ -1,6 +1,11 @@
 import bcrypt from 'bcryptjs';
-import { Document, model, Query, Schema } from 'mongoose';
 import validator from 'validator';
+import {
+  Document,
+  model,
+  Query,
+  Schema,
+} from '../../utils/imports/mongoose.mjs';
 import { UserRole as roles } from '../constants.mjs';
 import User from '../entities/user.mjs';
 
