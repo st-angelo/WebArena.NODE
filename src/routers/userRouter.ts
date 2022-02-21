@@ -6,7 +6,7 @@ import {
   resetPassword,
   signup,
   updatePassword,
-} from '../controllers/authentication/index.mjs';
+} from '../controllers/authentication/index.js';
 
 const router = Router();
 

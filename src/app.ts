@@ -5,8 +5,8 @@ import helmet from 'helmet';
 import hpp from 'hpp';
 import morgan from 'morgan';
 import xss from 'xss-clean';
-import userRouter from './routers/userRouter.mjs';
-import { __dirname } from './utils/common.mjs';
+import userRouter from './routers/userRouter.js';
+import { __dirname } from './utils/common.js';
 
 const app = express();
 

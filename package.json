@@ -2,14 +2,14 @@
   "name": "web-arena-node",
   "version": "1.0.0",
   "description": "This is the api for WebArena",
-  "main": "./src/server.mts",
+  "main": "./src/server.ts",
   "type": "module",
   "scripts": {
     "server:build": "tsc",
-    "server:run": "node dist/server.mjs",
+    "server:run": "node --experimental-specifier-resolution=node dist/server.js",
     "start": "npm-run-all --sequential server:build server:run",
-    "lint": "eslint . --ext .mts",
-    "lint:fix": "eslint . --ext .mts --fix"
+    "lint": "eslint . --ext .ts",
+    "lint:fix": "eslint . --ext .ts --fix"
   },
   "repository": {
     "type": "git",
@@ -50,6 +50,7 @@
     "@automapper/classes": "^7.2.1",
     "@automapper/core": "^7.2.1",
     "@types/jsonwebtoken": "^8.5.8",
+    "@web-arena/es-named-imports": "^1.0.4",
     "bcryptjs": "^2.4.3",
     "date-fns": "^2.28.0",
     "dotenv": "^16.0.0",

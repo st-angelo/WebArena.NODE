@@ -2,10 +2,10 @@
 import mongoose from 'mongoose';
 /* These two scripts need to be imported before app, to load the environment configs
    and establish some error handling */
-import './utils/config.mjs';
-import './startup.mjs';
-import app from './app.mjs';
-import { __connectionString } from './utils/common.mjs';
+import './utils/config.js';
+import './startup.js';
+import app from './app.js';
+import { __connectionString } from './utils/common.js';
 
 mongoose
   .connect(__connectionString)

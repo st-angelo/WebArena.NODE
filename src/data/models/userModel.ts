@@ -1,13 +1,13 @@
-import bcrypt from 'bcryptjs';
-import validator from 'validator';
 import {
   Document,
   model,
   Query,
   Schema,
-} from '../../utils/imports/mongoose.mjs';
-import { UserRole as roles } from '../constants.mjs';
-import User from '../entities/user.mjs';
+} from '@web-arena/es-named-imports/mongoose';
+import bcrypt from 'bcryptjs';
+import validator from 'validator';
+import { UserRole as roles } from '../constants.js';
+import User from '../entities/user.js';
 
 type UserDocument = User & Document;
 

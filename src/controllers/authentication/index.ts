@@ -1,11 +1,11 @@
 import crypto from 'crypto';
 import { NextFunction, Response } from 'express';
-import UserModel from '../../data/models/userModel.mjs';
-import sendEmail from '../../services/emailService.mjs';
-import { AppError } from '../../utils/appError.mjs';
-import { catchAsync } from '../../utils/catchAsync.mjs';
-import { verifyJWT } from '../../utils/jwtHelpers.mjs';
-import helpers from './helpers.mjs';
+import UserModel from '../../data/models/userModel.js';
+import sendEmail from '../../services/emailService.js';
+import { AppError } from '../../utils/appError.js';
+import { catchAsync } from '../../utils/catchAsync.js';
+import { verifyJWT } from '../../utils/jwtHelpers.js';
+import helpers from './helpers.js';
 import {
   ForgotPasswordRequest,
   LoginRequest,
@@ -14,7 +14,7 @@ import {
   RestrictToRequest,
   SignupRequest,
   UpdatePasswordRequest,
-} from './requests.mjs';
+} from './requests.js';
 
 export const signup = catchAsync(async (req: SignupRequest, res, next) => {
   const { tag, email, password } = req.body;

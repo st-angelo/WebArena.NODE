@@ -1,5 +1,5 @@
 import { Request } from 'express';
-import { AuthenticatedRequest } from '../common.mjs';
+import { AuthenticatedRequest } from '../common.js';
 
 // #region Signup
 

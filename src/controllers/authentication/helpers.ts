@@ -4,9 +4,9 @@ import { add, format } from 'date-fns';
 import { CookieOptions, Response } from 'express';
 import jwt from 'jsonwebtoken';
 import { ObjectId } from 'mongoose';
-import UserDto from '../../data/dto/userDto.mjs';
-import User from '../../data/entities/user.mjs';
-import mapper from '../../utils/mapper.mjs';
+import UserDto from '../../data/dto/userDto.js';
+import User from '../../data/entities/user.js';
+import mapper from '../../utils/mapper.js';
 
 /**
  * Signs jwt token

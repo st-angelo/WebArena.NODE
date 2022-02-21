@@ -1,6 +1,6 @@
+import { AutoMap } from '@web-arena/es-named-imports/@automapper/classes';
 import { ObjectId } from 'mongoose';
-import { AutoMap } from '../../utils/imports/automapper.mjs';
-import { UserRole } from '../constants.mjs';
+import { UserRole } from '../constants.js';
 
 class User {
   _id: ObjectId;
