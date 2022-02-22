@@ -1,6 +1,5 @@
 import { Request } from 'express';
-import { AuthenticatedRequest } from '../common.js';
-
+// TODO rethink requests
 // #region Signup
 
 interface SignupRequestBody {
@@ -30,13 +29,13 @@ export interface LoginRequest extends Request {
 
 // #region Protect
 
-export interface ProtectRequest extends AuthenticatedRequest {}
+export interface ProtectRequest extends Request {}
 
 // #endregion
 
 // #region RestrictTo
 
-export interface RestrictToRequest extends AuthenticatedRequest {}
+export interface RestrictToRequest extends Request {}
 
 // #endregion
 
@@ -46,7 +45,7 @@ interface ForgotPasswordRequestBody {
   email: string;
 }
 
-export interface ForgotPasswordRequest extends AuthenticatedRequest {
+export interface ForgotPasswordRequest extends Request {
   body: ForgotPasswordRequestBody;
 }
 
@@ -58,7 +57,7 @@ interface ResetPasswordRequestBody {
   password: string;
 }
 
-export interface ResetPasswordRequest extends AuthenticatedRequest {
+export interface ResetPasswordRequest extends Request {
   body: ResetPasswordRequestBody;
 }
 
@@ -71,7 +70,7 @@ interface UpdatePasswordRequestBody {
   newPassword: string;
 }
 
-export interface UpdatePasswordRequest extends AuthenticatedRequest {
+export interface UpdatePasswordRequest extends Request {
   body: UpdatePasswordRequestBody;
 }
 
