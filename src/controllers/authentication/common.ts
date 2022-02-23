@@ -99,7 +99,7 @@ export const correctPassword = (
 ): Promise<boolean> => bcrypt.compare(value, currentPassword);
 
 /**
- * Throws a new AppError specifying that the user wasn't found
+ * Forwards a new AppError specifying that the user wasn't found
  * @param {NextFunction} next
  * @returns void
  */

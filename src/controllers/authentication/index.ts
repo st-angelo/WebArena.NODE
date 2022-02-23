@@ -12,14 +12,14 @@ import {
   createPasswordResetToken,
   userChangedPasswordAfter,
   userNotFound,
-} from './helpers.js';
+} from './common.js';
 import {
   ForgotPasswordBody,
   LoginBody,
   ResetPasswordBody,
   SignupBody,
   UpdatePasswordBody,
-} from './structure.js';
+} from './metadata.js';
 
 export const signup = catchAsync(
   async (req: Request<SignupBody>, res, next) => {
