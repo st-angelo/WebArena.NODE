@@ -1,11 +1,12 @@
 import bcrypt from 'bcryptjs';
 import crypto from 'crypto';
 import { add, format } from 'date-fns';
-import { CookieOptions, Response } from 'express';
+import { CookieOptions, NextFunction, Response } from 'express';
 import jwt from 'jsonwebtoken';
 import { ObjectId } from 'mongoose';
 import UserDto from '../../data/dto/userDto.js';
 import User from '../../data/entities/user.js';
+import { AppError } from '../../utils/appError.js';
 import mapper from '../../utils/mapper.js';
 
 /**
@@ -13,7 +14,7 @@ import mapper from '../../utils/mapper.js';
  * @param {ObjectId} id
  * @returns {string}
  */
-const signToken = (id: ObjectId): string =>
+export const signToken = (id: ObjectId): string =>
   jwt.sign({ id }, process.env.JWT_SECRET, {
     expiresIn: process.env.JWT_EXPIRES_IN,
   });
@@ -24,7 +25,11 @@ const signToken = (id: ObjectId): string =>
  * @param {number} statusCode
  * @param {Response} res
  */
-const createAndSendToken = (user: User, statusCode: number, res: Response) => {
+export const createAndSendToken = (
+  user: User,
+  statusCode: number,
+  res: Response
+) => {
   const token = signToken(user._id);
 
   const cookieOptions: CookieOptions = {
@@ -51,7 +56,7 @@ const createAndSendToken = (user: User, statusCode: number, res: Response) => {
  * @param {number} jwtTimestamp
  * @returns {boolean}
  */
-const userChangedPasswordAfter = (
+export const userChangedPasswordAfter = (
   user: User,
   jwtTimestamp: number
 ): boolean => {
@@ -69,7 +74,7 @@ const userChangedPasswordAfter = (
  * @param {User} user
  * @returns {string}
  */
-const createPasswordResetToken = (user: User): string => {
+export const createPasswordResetToken = (user: User): string => {
   const resetToken = crypto.randomBytes(32).toString('hex');
 
   user.passwordResetToken = crypto
@@ -88,15 +93,15 @@ const createPasswordResetToken = (user: User): string => {
  * @param {string} currentPassword
  * @returns {Promise<boolean>}
  */
-const correctPassword = (
+export const correctPassword = (
   value: string,
   currentPassword: string
 ): Promise<boolean> => bcrypt.compare(value, currentPassword);
 
-export default {
-  signToken,
-  createAndSendToken,
-  userChangedPasswordAfter,
-  createPasswordResetToken,
-  correctPassword,
-};
+/**
+ * Throws a new AppError specifying that the user wasn't found
+ * @param {NextFunction} next
+ * @returns void
+ */
+export const userNotFound = (next: NextFunction): void =>
+  next(new AppError('User not found', 404));
