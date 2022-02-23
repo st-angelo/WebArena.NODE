@@ -170,7 +170,7 @@ export const resetPassword = catchAsync(
 
 export const updatePassword = catchAsync(
   async (req: Request<UpdatePasswordBody>, res, next) => {
-    if (!req.user) return next(new AppError('User not found', 404));
+    if (!req.user) return userNotFound(next);
     // 1. Get user from collection
     const user = await UserModel.findById(req.user._id).select('+password');
     if (!user) return next(new AppError('User could not be found', 401));
